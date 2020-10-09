@@ -3,17 +3,17 @@
 close all, clear all, clc;
 x = [14,44,38,-22,-44,-30];                 		%x-axis values
 y = [170,206,170,84,30,80];                 		%y-axis values
-uc = 0.02;                                  			%uncertainty of x and y
-x_sq = x.*x;                                 			%x^2
-y_sq = y.*y;                                			%y^2    
+uc = 0.02;                                  		%uncertainty of x and y
+x_sq = x.*x;                                 		%x^2
+y_sq = y.*y;                                		%y^2    
 wAi = (sqrt(x_sq.*uc^2+y_sq*uc^2)/sqrt(2)); 	%uncertainty of elemental areas
 sumA = [1190, 5722, 8952, 8028, 7368, 6168];	%sum of elemental areas
-wA=[];                                      			%define wA array          
-wA(1) = 0;                                  			%define element 1 = zero
+wA=[];                                      	%define wA array          
+wA(1) = 0;                                  	%define element 1 = zero
   
 for i = 1:6
-    wA(i+1) = (wA(i) + wAi(i).^2);          		%sum from Eq.(7-26)
+    wA(i+1) = (wA(i) + wAi(i).^2);          	%sum from Eq.(7-26)
 end
-wA = sqrt(wA);                              			%square root from Eq.(7-26)
-wA(1) = [ ];                                 			%delete element 1
-wAA = (wA./sumA)'                           		%column wA(i)/sumA
+wA = sqrt(wA);                              	%square root from Eq.(7-26)
+wA(1) = [ ];                                 	%delete element 1
+wAA = (wA./sumA)'                           	%column wA(i)/sumA
